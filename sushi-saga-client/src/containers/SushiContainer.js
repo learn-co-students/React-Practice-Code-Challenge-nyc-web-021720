@@ -17,13 +17,14 @@ const SushiContainer = (props) => {
 
 
         }
-        <MoreButton />
+        <MoreButton more={this.more}/>
       </div>
     </Fragment>
   )
 }
 
 SushiContainer.propTypes={
-  showSushi: PropTypes.func.isRequired
+  showSushi: PropTypes.array.isRequired,
+  more: PropTypes.func.isRequired
 }
 export default SushiContainer
