@@ -3,9 +3,11 @@ import MoreButton from '../components/MoreButton'
 import PropTypes from 'prop-types'
 import Sushi from '../components/Sushi'
 
+
 const SushiContainer = (props) => {
 
-  const {showSushi}=props
+  const {showSushi,more,eat,eaten}=props
+
   return (
     <Fragment>
       <div className="belt">
@@ -13,11 +15,13 @@ const SushiContainer = (props) => {
           /* 
              Render Sushi components here!
           */
-        showSushi.map(sushi => <Sushi key={sushi.id} sushi={sushi}/>)
+        showSushi.map(sushi => <Sushi key={sushi.id} sushi={sushi} eat={eat} eaten={eaten}/>)
+       
+
 
 
         }
-        <MoreButton more={props.more}/>
+        <MoreButton more={more}/>
       </div>
     </Fragment>
   )
@@ -25,6 +29,8 @@ const SushiContainer = (props) => {
 
 SushiContainer.propTypes={
   showSushi: PropTypes.array.isRequired,
-  more: PropTypes.func.isRequired
+  more: PropTypes.func.isRequired,
+  eat: PropTypes.func.isRequired,
+  eaten: PropTypes.array.isRequired
 }
 export default SushiContainer
