@@ -10,10 +10,20 @@ class App extends Component {
   state = {
     sushis:[],
     cash: 200,
-    cost: 0
+    cost: 0,
+    timesClicked:[]
+
   }
 
-  handleRender = () => {
+  handStack = (id) =>{
+    let temp = [...this.state.timesClicked,id]
+    this.setState({
+      timesClicked: temp
+    })
+  }
+
+
+  componentDidMount(){
     fetch(`http://localhost:3000/sushis`)
     .then(resp => resp.json())
     .then(data =>{
@@ -24,6 +34,7 @@ class App extends Component {
   }
 
   handleMore = () =>{
+
     let added = this.state.slideIndex + 4
     this.setState({
       slideIndex:added
@@ -44,9 +55,8 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <button onClick = {this.handleRender}> get Sushis</button>
-        <SushiContainer addCost = {this.addCost}sushis = {this.state.sushis} handleRender={this.handleRender}/>
-        <Table cash = {this.state.cash} cost = {this.state.cost}/>
+        <SushiContainer arraylist = {this.handStack} addCost = {this.addCost}sushis = {this.state.sushis} handleRender={this.handleRender}/>
+        <Table timesClicked={this.state.timesClicked} cash = {this.state.cash} cost = {this.state.cost}/>
       </div>
     );
   }

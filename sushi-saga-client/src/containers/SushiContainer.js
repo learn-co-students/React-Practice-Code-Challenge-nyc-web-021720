@@ -24,7 +24,7 @@ class SushiContainer extends React.Component{
         <div className="belt">
           
           {this.props.sushis.slice(this.state.slideIndex,this.state.slideIndex + 4).map(data => (
-             <Sushi key = {data.id} addCost={this.props.addCost} name = {data.name} url = {data.img_url} price={data.price}/>
+             <Sushi key = {data.id} arraylist = {this.props.arraylist}addCost={this.props.addCost} name = {data.name} url = {data.img_url} price={data.price}/>
           ))}
           <MoreButton handleMore={this.handleMore}/>
         </div>

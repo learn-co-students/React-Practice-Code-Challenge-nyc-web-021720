@@ -4,7 +4,7 @@ const Sushi = (props) => {
   return (
     <div className="sushi">
       <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
+           onClick={() => props.arraylist(props.name)}>
         { 
           /* Tell me if this sushi has been eaten! */ 
           false ?
