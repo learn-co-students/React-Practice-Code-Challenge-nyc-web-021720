@@ -8,7 +8,7 @@ const API = "http://localhost:3000/sushis"
 class App extends Component {
   state = {
     allSushis: [],
-    eaten: [],
+    eaten: [], //sushi id
     balance: 100,
     displaySushis: 0
   }
@@ -22,7 +22,7 @@ class App extends Component {
     return this.state.allSushis.slice(this.state.displaySushis, this.state.displaySushis + 4)
   }
 
-  displayMoreSushis = (event)=>{
+  displayMoreSushis = ()=>{
     let moreSushis = this.state.displaySushis + 4
     if (moreSushis >= this.state.allSushis.length){
       moreSushis = 0
