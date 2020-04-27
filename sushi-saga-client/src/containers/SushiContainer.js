@@ -17,7 +17,7 @@ const SushiContainer = (props) => {
 
 
         }
-        <MoreButton more={this.more}/>
+        <MoreButton more={props.more}/>
       </div>
     </Fragment>
   )

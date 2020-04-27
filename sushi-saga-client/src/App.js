@@ -39,6 +39,13 @@ handleMore = e =>{
   })
 }
 
+showEaten = e  => {
+
+this.setState({
+  eaten: [...this.state.eaten,]
+})
+}
+
 
 
   render() {
