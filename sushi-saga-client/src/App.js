@@ -39,10 +39,13 @@ handleMore = e =>{
   })
 }
 
-showEaten = e  => {
+// instead of event , we want to click on sushis for the stuff we just ate(clicked)
+showEaten = (sushis) => {
+let newMoney=this.state.money - sushis.price
 
 this.setState({
-  eaten: [...this.state.eaten,]
+  eaten: [...this.state.eaten,sushis],
+  money: newMoney
 })
 }
 
@@ -53,7 +56,8 @@ this.setState({
       <div className="app">
         <SushiContainer 
         showSushi={this.showSushi()}
-        more={this.handleMore}
+        more={this.handleMore}``
+        eat={this.showEaten}
         />
         <Table />
       </div>
